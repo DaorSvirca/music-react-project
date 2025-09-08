@@ -1,0 +1,32 @@
+.MovieList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  padding: 2%;
+  width: 100%;
+  box-sizing: border-box;
+  justify-content: center;
+}
+
+.MovieListScroll {
+  display: flex;
+  overflow-x: auto;
+  gap: 16px;
+  padding: 16px;
+  scroll-behavior: smooth;
+}
+
+.MovieListScroll::-webkit-scrollbar {
+  display: none;
+}
+.MovieListScroll {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.MovieSectionTitle {
+  font-size: 22px;
+  font-weight: 700;
+  margin: 16px 0;
+  color: #fff;
+}
