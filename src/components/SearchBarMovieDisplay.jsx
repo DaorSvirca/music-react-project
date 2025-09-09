@@ -18,6 +18,7 @@ export default function SearchBarMovieDisplay({ movie, onSelect }) {
       <img
         src={`https://image.tmdb.org/t/p/w92${movie.poster_path}`}
         alt={movie.title}
+        onError="this.onerror=null; this.src='';"
         className="w-16 h-24 object-cover rounded-md mr-3"
       />
       <div className="flex flex-col">

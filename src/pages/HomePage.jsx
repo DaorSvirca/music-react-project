@@ -1,5 +1,5 @@
 import MovieList from "../components/MovieList";
-import SearchBar from "../components/SearchBar";
+
 import Navbar from "../components/Navbar";
 import { useState, useEffect } from "react";
 
@@ -25,7 +25,7 @@ export default function HomePage() {
 
   return (
     <div className="relative min-h-screen w-full flex flex-col items-center justify-start text-white overflow-hidden">
-      {/* Background overlay */}
+      
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-50 z-0"
         style={{
@@ -33,8 +33,7 @@ export default function HomePage() {
         }}
       ></div>
 
-      {/* Page content */}
-      <div className="relative z-10 w-full">
+      <div className="relative z-10 w-full ">
         <Navbar />
         <MovieList />
       </div>

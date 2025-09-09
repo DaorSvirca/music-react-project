@@ -14,7 +14,7 @@ export default function Navbar() {
 
   useEffect(() => {
     const fetchResults = async () => {
-      if (query.length > 2) {
+      if (query.length > 0) {
         const movies = await searchMovies(query);
         setResults(movies);
         setVisibleCount(5);
@@ -42,26 +42,23 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="bg-white shadow-md fixed w-full z-10">
+    <nav className="bg-[#00598a] shadow-md fixed w-full z-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16 items-center">
-          {/* Logo */}
           <div className="flex-shrink-0">
-            <a href="/" className="text-xl font-bold text-indigo-600">
+            <a href="/" className="text-xl font-bold text-white">
               MyMovies
             </a>
           </div>
 
-          {/* Desktop Menu */}
           <div className="hidden sm:flex sm:items-center space-x-4">
-            <a href="/" className="text-gray-700 hover:text-indigo-600">
+            <a href="/" className="text-white-700 hover:text-white">
               Home
             </a>
-            <a href="/about" className="text-gray-700 hover:text-indigo-600">
+            <a href="/about" className="text-white hover:text-white">
               About
             </a>
 
-            {/* Search */}
             <div className="relative">
               <form onSubmit={handleSearch}>
                 <input
@@ -69,13 +66,12 @@ export default function Navbar() {
                   value={query}
                   onChange={(e) => setQuery(e.target.value)}
                   placeholder="Search movies..."
-                  className="px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 w-64"
+                  className="text-black placeholder-gray-500 px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 w-64"
                 />
               </form>
 
-              {/* Search Results Dropdown */}
               {results.length > 0 && (
-                <div className="absolute mt-2 w-full bg-white border rounded-md shadow-lg max-h-96 overflow-y-auto z-20">
+                <div className="text-black absolute mt-2 w-full bg-white border rounded-md shadow-lg max-h-96 overflow-y-auto z-20">
                   {results
                     .sort((a, b) => b.vote_average - a.vote_average)
                     .slice(0, visibleCount)
@@ -107,7 +103,6 @@ export default function Navbar() {
             </div>
           </div>
 
-          {/* Mobile Menu Button */}
           <div className="sm:hidden">
             <button
               onClick={() => setMenuOpen(!menuOpen)}
@@ -116,7 +111,7 @@ export default function Navbar() {
               <svg
                 className="w-6 h-6"
                 fill="none"
-                stroke="currentColor"
+                stroke="white"
                 viewBox="0 0 24 24"
               >
                 <path
@@ -131,7 +126,6 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Menu */}
       {menuOpen && (
         <div className="sm:hidden px-2 pt-2 pb-3 space-y-1">
           <form onSubmit={handleSearch}>
@@ -140,18 +134,18 @@ export default function Navbar() {
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               placeholder="Search movies..."
-              className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 mb-2"
+              className="text-black w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 mb-2"
             />
           </form>
           <a
             href="/"
-            className="block px-3 py-2 rounded-md text-gray-700 hover:text-indigo-600"
+            className="block px-3 py-2 rounded-md text-white hover:text-indigo-600"
           >
             Home
           </a>
           <a
             href="/about"
-            className="block px-3 py-2 rounded-md text-gray-700 hover:text-indigo-600"
+            className="block px-3 py-2 rounded-md text-white hover:text-indigo-600"
           >
             About
           </a>

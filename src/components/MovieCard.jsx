@@ -13,8 +13,7 @@ export default function MovieCard({ movie }) {
   const handleView = () => navigate(`/movie/${movie.id}`);
 
   return (
-    <div className="flex flex-col bg-[#3e3f29] text-white rounded-xl overflow-hidden w-72 p-4 cursor-pointer transform transition-transform duration-300 hover:-translate-y-5 hover:shadow-2xl">
-      {/* Movie Image */}
+    <div className="flex flex-col  justify-between bg-[#00598a] text-white rounded-xl overflow-hidden w-96 p-6 cursor-pointer transform transition-transform duration-300 hover:-translate-y-5 hover:shadow-2xl opacity-85">
       <div className="w-full h-72 overflow-hidden rounded-t-xl">
         <img
           src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
@@ -23,18 +22,17 @@ export default function MovieCard({ movie }) {
         />
       </div>
 
-      {/* Movie Details */}
       <div className="flex flex-col gap-3 mt-4">
         <h2 className="text-lg font-semibold">{movie.original_title}</h2>
-        <h3 className="text-gray-300">Language: {flag}</h3>
-        <h5 className="text-gray-400">{movie.release_date}</h5>
+        <h3 className="text-white">Language: {flag}</h3>
+        <h5 className="font-semibold text-white">{movie.release_date}</h5>
 
         <div className="flex items-center gap-2">
           <Rating
             name="text-feedback"
             value={movie.vote_average / 2}
             readOnly
-            precision={0.1}
+            precision={0.5}
             emptyIcon={
               <StarIcon style={{ opacity: 0.55 }} fontSize="inherit" />
             }
@@ -43,9 +41,8 @@ export default function MovieCard({ movie }) {
           <Box
             sx={{ ml: 0 }}
             className="text-gray-200"
-          >{`(${movie.vote_average})`}</Box>
+          >{`(${movie.vote_average.toFixed(1)})`}</Box>
         </div>
-
         <Button text="View more" onClick={handleView} />
       </div>
     </div>

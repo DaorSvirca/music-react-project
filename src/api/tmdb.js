@@ -1,26 +1,30 @@
 const API_KEY = "3d60cea9fd26b3653c1515999ca7b598";
 const BASE_URL = "https://api.themoviedb.org/3";
 
-export const fetchTrendingMovies = async () => {
-  const response = await fetch(
-    `${BASE_URL}/trending/movie/week?api_key=${API_KEY}`
-  );
-  const data = await response.json();
-  return data.results;
-};
+// Fetch trending movies (returns only the array)
+export async function fetchTrendingMovies() {
+  const res = await fetch(`${BASE_URL}/trending/movie/week?api_key=${API_KEY}`);
+  if (!res.ok) throw new Error("Failed to fetch trending movies");
+  const data = await res.json();
+  return data.results; // return only the array
+}
 
-export const fetchMovieDetails = async (movieId) => {
-  const response = await fetch(
-    `${BASE_URL}/movie/${movieId}?api_key=${API_KEY}`
-  );
-  const data = await response.json();
-  return data;
-};
+// Fetch movie by ID
+export async function fetchMovieById(id) {
+  const res = await fetch(`${BASE_URL}/movie/${id}?api_key=${API_KEY}`);
+  if (!res.ok) throw new Error("Failed to fetch movie details");
+  return res.json(); // full movie object
+}
 
-export const searchMovies = async (query) => {
-  const response = await fetch(
-    `${BASE_URL}/search/movie?api_key=${API_KEY}&query=${query}`
+// Search movies by query
+export async function searchMovies(query) {
+  if (!query) return [];
+  const res = await fetch(
+    `${BASE_URL}/search/movie?api_key=${API_KEY}&query=${encodeURIComponent(
+      query
+    )}`
   );
-  const data = await response.json();
+  if (!res.ok) throw new Error("Failed to search movies");
+  const data = await res.json();
   return data.results;
-};
+}
