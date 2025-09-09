@@ -1,6 +1,8 @@
 import MovieList from "../components/MovieList";
-import "../styles/HomePage.css";
-import { useState, useEffect, use } from "react";
+import SearchBar from "../components/SearchBar";
+import Navbar from "../components/Navbar";
+import { useState, useEffect } from "react";
+
 export default function HomePage() {
   const [backgroundMovie, setBackgroundMovie] = useState(null);
 
@@ -20,14 +22,20 @@ export default function HomePage() {
   }, []);
 
   if (!backgroundMovie) return <div>Loading...</div>;
+
   return (
-    <div
-      className="HomePage"
-      style={{
-        "--background-url": `url(https://image.tmdb.org/t/p/original${backgroundMovie.backdrop_path})`,
-      }}
-    >
-      <div className="HomePageContent">
+    <div className="relative min-h-screen w-full flex flex-col items-center justify-start text-white overflow-hidden">
+      {/* Background overlay */}
+      <div
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-50 z-0"
+        style={{
+          backgroundImage: `url(https://image.tmdb.org/t/p/original${backgroundMovie.backdrop_path})`,
+        }}
+      ></div>
+
+      {/* Page content */}
+      <div className="relative z-10 w-full">
+        <Navbar />
         <MovieList />
       </div>
     </div>

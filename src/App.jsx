@@ -1,6 +1,7 @@
 import HomePage from "./pages/HomePage";
 import MovieDetailsPage from "./pages/MovieDetailsPage";
 import { Routes, Route } from "react-router-dom";
+import "./index.css";
 function App() {
   return (
     <>

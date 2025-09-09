@@ -1,0 +1,49 @@
+.SearchBarMovieDisplay {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  padding: 10px 15px;
+  border-radius: 8px;
+  border: solid 1px #444;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.SearchBarMovieDisplay:hover {
+  background: #2a2a2a;
+}
+
+.SearchBarMovieDisplay img {
+  width: 45px;
+  height: 65px;
+  border-radius: 6px;
+  object-fit: cover;
+}
+
+.MovieInfo {
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+}
+
+.MovieTitle {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.SearchResultsDropdown {
+  position: absolute;
+  top: 100%; /* just below search input */
+  left: 0;
+  right: 0;
+  background: #1e1e1e;
+  border-radius: 12px;
+  margin-top: 8px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+  max-height: 400px;
+  overflow-y: auto;
+  z-index: 1000;
+  padding: 8px 0;
+}
