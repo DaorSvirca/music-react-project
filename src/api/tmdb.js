@@ -28,3 +28,22 @@ export async function searchMovies(query) {
   const data = await res.json();
   return data.results;
 }
+
+export async function fetchAllMovies() {
+  const res = await fetch(
+    `${BASE_URL}/discover/movie?api_key=${API_KEY}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1`
+  );
+  if (!res.ok) throw new Error("Failed to fetch all movies");
+  const data = await res.json();
+  return data.results;
+}
+
+// api/tmdb.js
+export async function fetchMoviesByGenres() {
+  const res = await fetch(
+    `https://api.themoviedb.org/3/genre/movie/list?api_key=${process.env.REACT_APP_TMDB_API_KEY}&language=en-US`
+  );
+  if (!res.ok) throw new Error("Failed to fetch genres");
+  const data = await res.json();
+  return data.genres; // [{id, name}, ...]
+}

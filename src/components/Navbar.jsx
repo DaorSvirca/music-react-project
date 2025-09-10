@@ -14,7 +14,7 @@ export default function Navbar() {
 
   useEffect(() => {
     const fetchResults = async () => {
-      if (query.length > 0) {
+      if (query.length > 2) {
         const movies = await searchMovies(query);
         setResults(movies);
         setVisibleCount(5);
@@ -55,8 +55,8 @@ export default function Navbar() {
             <a href="/" className="text-white-700 hover:text-white">
               Home
             </a>
-            <a href="/about" className="text-white hover:text-white">
-              About
+            <a href="/movies/page/1" className="text-white hover:text-white">
+              All Movies
             </a>
 
             <div className="relative">

@@ -1,9 +1,7 @@
-import TrendingMovieList from "../components/TrendingMovieList";
-
 import Navbar from "../components/Navbar";
+import AllMovies from "../components/AllMovies";
 import { useState, useEffect } from "react";
-
-export default function HomePage() {
+export default function AllMoviesPage() {
   const [backgroundMovie, setBackgroundMovie] = useState(null);
 
   useEffect(() => {
@@ -31,10 +29,9 @@ export default function HomePage() {
           backgroundImage: `url(https://image.tmdb.org/t/p/original${backgroundMovie.backdrop_path})`,
         }}
       ></div>
-
-      <div className="relative z-10 w-full ">
+      <div className="relative z-10 w-full">
         <Navbar />
-        <TrendingMovieList />
+        <AllMovies />
       </div>
     </div>
   );

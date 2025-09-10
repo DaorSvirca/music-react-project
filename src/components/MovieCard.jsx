@@ -13,7 +13,7 @@ export default function MovieCard({ movie }) {
   const handleView = () => navigate(`/movie/${movie.id}`);
 
   return (
-    <div className="flex flex-col  justify-between bg-[#00598a] text-white rounded-xl overflow-hidden w-96 p-6 cursor-pointer transform transition-transform duration-300 hover:-translate-y-5 hover:shadow-2xl opacity-85">
+    <div className="flex flex-col  justify-between bg-[#00598a] text-white rounded-xl overflow-hidden w-96 p-6 cursor-pointer transform transition-transform duration-300 hover:-translate-y-5 hover:shadow-2xl opacity-90">
       <div className="w-full h-72 overflow-hidden rounded-t-xl">
         <img
           src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}

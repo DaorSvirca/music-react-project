@@ -2,7 +2,7 @@ import MovieCard from "./MovieCard";
 import { useState, useEffect } from "react";
 import { fetchTrendingMovies } from "../api/tmdb";
 
-export default function MovieList() {
+export default function TrendingMovieList() {
   const [movies, setMovies] = useState([]);
   const [selectedMovie, setSelectedMovie] = useState(null);
 
